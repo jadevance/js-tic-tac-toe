@@ -1,14 +1,16 @@
 html {
-  font-size: 16px;
+  font-size: 1rem;
+  font-family: arial;
 }
 
 body {
-  background-color: black;   
+  background-color: white;   
 }
 
 .gameboard {
   width: 60rem;
-  margin: 10rem auto;
+  margin: 5rem auto;
+  text-align: center;
 }
 
 .emoji-selector { 
@@ -17,18 +19,18 @@ body {
 }
 
 .space {
-  background-color: #18323e;
-  color: #1a9ddb;
+  background-color: #1a9ddb; 
+  border-radius: 0.50rem;
+  border: none; 
   cursor: pointer;
   font-size: 3rem;
   width: 8rem;
   height: 8rem;
   margin: 0;
   padding: 0;
-  border: 3px solid currentColor;
 }
 
-.space:focus { outline: none; }
-.space:hover { background-color: #184d65; }
-.space:active, .space.active { background-color: #1a9ddb; }
+hr {
+  border: none; 
+}
 
