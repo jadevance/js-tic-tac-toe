@@ -1,3 +1,34 @@
 html {
-  
+  font-size: 16px;
 }
+
+body {
+  background-color: black;   
+}
+
+.gameboard {
+  width: 60rem;
+  margin: 10rem auto;
+}
+
+.emoji-selector { 
+  font-size: 3rem;
+  color: #1a9ddb; ;
+}
+
+.space {
+  background-color: #18323e;
+  color: #1a9ddb;
+  cursor: pointer;
+  font-size: 3rem;
+  width: 8rem;
+  height: 8rem;
+  margin: 0;
+  padding: 0;
+  border: 3px solid currentColor;
+}
+
+.space:focus { outline: none; }
+.space:hover { background-color: #184d65; }
+.space:active, .space.active { background-color: #1a9ddb; }
+

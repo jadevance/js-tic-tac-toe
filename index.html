@@ -1,21 +1,24 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Tic Tac Toe!</title>
+    <title>Tic Tac Toe</title>
     <meta charset="utf-8">
     <link href="index.css" media="screen" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="tic-tac-toe.js"></script>
   </head>
-
   <body>
-    <h1>Tic Tac Toe</h1>
-    <div id="tic-tac-toe"></div>
+    <div class="emoji-selector">Team 🌮 or Team 🐯</div>
+    <div class="gameboard">   
+      <button class="space top-left"></button>        
+      <button class="space top-middle"></button>
+      <button class="space top-right"></button></br>
+      <button class="space center-left"></button>
+      <button class="space center-middle"></button>
+      <button class="space center-right"></button></br>
+      <button class="space bottom-left"></button>
+      <button class="space bottom-middle"></button>
+      <button class="space bottom-right"></button>
+    </div>
   </body>
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-  <script src="tic-tac-toe.js"></script>
-  <script type="text/javascript">
-    $(document).on('ready', function() {
-      console.log('create and begin the game here!');
-    })
-  </script>
 </html>
-
