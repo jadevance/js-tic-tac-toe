@@ -3,6 +3,21 @@ html {
   font-size: 1rem;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  border: none;
+}
+
+div#tic-tac-toe{
+  display: block;
+  margin: auto;
+  width: 40%;
+}
+
 div.cell {
   border: 1px solid #1a9ddb;
   float: left;
@@ -17,13 +32,4 @@ div.cell {
 div.row {
   clear: both;
 }
-
-/*div.emoji-selector { 
-  font-size: 3rem;
-  color: #1a9ddb;
-  float: right;
-  clear: both; 
-  margin: 5rem; 
-}
-*/
 

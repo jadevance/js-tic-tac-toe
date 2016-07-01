@@ -1,3 +1,12 @@
+// To Do:
+// - Draw conditions and message 
+// - Make it look how you want
+
+// Done:
+// - Winner message
+// - Team selection
+// - New game button (will call reset method)
+
 function TicTacToe() {
   var self = this;
 
@@ -19,13 +28,15 @@ function TicTacToe() {
 
   this.init = function(selector) {
     self.container = $(selector);
+    $('div.team').click(self.onTeamClick);
     $('div.cell').click(self.onCellClick);
-    self.reset();
+    $('button').click(self.onNewGameClick)
   };
 
   this.reset = function() {
     self.gameOver = false;
-    self.turn = '🌮';
+    self.board = [['','',''],['','',''],['','','']]; 
+    self.container.find('div.cell').text('');
   };
 
   this.onCellClick = function() {
@@ -34,6 +45,19 @@ function TicTacToe() {
     var column = _this.data('column');
     self.makeMove(row, column); 
   };
+
+  this.onTeamClick = function() {
+    var _this = $(this);
+    if (_this.data('type') === 'taco') { 
+      self.turn = '🌮'
+    } else {
+      self.turn = '🐯'
+    }
+  }
+
+  this.onNewGameClick = function() {
+    self.reset()
+  }
 
   this.makeMove = function(row, column) {
     if (self.board[row][column] != '') {
@@ -53,8 +77,10 @@ function TicTacToe() {
     var winner = self.isWinner();
     if (winner != false) {
       self.gameOver = true;
-      console.log('winner: ' + winner);
+      $('div.message').text('Winner: Team ' + winner)
     }
+    // var draw = $.contains('#tic-tac-toe.div', '')
+    // console.log(draw)
   };
 
   this.isWinner = function() {
@@ -76,7 +102,6 @@ function TicTacToe() {
       for (var j = 0; j < row.length; j++) {
         var boardCell = row[j];
         var winConditionCell = winCondition[i][j];
-
         // To be a win all winConditionCells with a 1
         // must contain the symbol.
         // If a winConditionCell with a 1 does not contain
