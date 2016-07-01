@@ -1,6 +1,12 @@
 function TicTacToe() {
-  //cheap trick to grab an self ref of TicTacToe
+  
+  //cheap trick to grab an instance ref of TicTacToe
   var self = this;
+
+  this.container = null;
+  this.gameOver = null;
+  this.turn = null;
+  this.board = [['','',''],['','',''],['','','']];
 
   this.winConditions = [
     [[1,1,1],[0,0,0],[0,0,0]],
@@ -13,9 +19,28 @@ function TicTacToe() {
     [[0,0,1],[0,1,0],[1,0,0]]
   ];
 
-  this.initialize = function() {
-    this._setupButtons();
-    this._setupTeam(); 
+  this.initialize = function(selector) {
+    self.container = $(selector);
+    $('div.cell').click(self.onCellClick);
+    self.reset();
+  };
+
+  this._reset = function() {
+    self.gameOver = false;
+    self.turn = '🌮';
+  };
+
+  this._isWinner = function() {
+    for (var i = 0; i < self.winConditions.length; i++) {
+      var winCondition = self.winConditions[i];
+      if (self.checkWinCondition('🌮', winCondition)) {
+        return '🌮';
+      }
+      if (self.checkWinCondition('🐯', winCondition)) {
+        return '🐯';
+      }
+    }
+    return false;
   };
 
   this._setupTeam = function() {
@@ -58,12 +83,6 @@ function TicTacToe() {
       $(position).text('🌮');
   };
 }
-
-$(document).ready( function() {
-  var tictactoe = new TicTacToe();
-  tictactoe.initialize();
-});
-
 
 // what is a turn? 
 
