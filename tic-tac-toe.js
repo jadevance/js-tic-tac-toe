@@ -1,11 +1,8 @@
 // To Do:
 // - Draw conditions and message 
+// - Add sounds and animations!! 
 // - Make it look how you want
 
-// Done:
-// - Winner message
-// - Team selection
-// - New game button (will call reset method)
 
 function TicTacToe() {
   var self = this;
@@ -37,7 +34,13 @@ function TicTacToe() {
     self.gameOver = false;
     self.board = [['','',''],['','',''],['','','']]; 
     self.container.find('div.cell').text('');
+    self.turn = null; 
+    $('div.message').text('')
   };
+
+  this.onNewGameClick = function() {
+    self.reset()
+  }
 
   this.onCellClick = function() {
     var _this = $(this);
@@ -53,11 +56,7 @@ function TicTacToe() {
     } else {
       self.turn = '🐯'
     }
-  }
-
-  this.onNewGameClick = function() {
-    self.reset()
-  }
+  }; 
 
   this.makeMove = function(row, column) {
     if (self.board[row][column] != '') {
@@ -79,8 +78,6 @@ function TicTacToe() {
       self.gameOver = true;
       $('div.message').text('Winner: Team ' + winner)
     }
-    // var draw = $.contains('#tic-tac-toe.div', '')
-    // console.log(draw)
   };
 
   this.isWinner = function() {
