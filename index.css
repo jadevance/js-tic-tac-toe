@@ -23,16 +23,6 @@ div.message {
 
 div.team {
   border: .15rem solid white;
-/*  border-radius: .50rem;
-  display: inline;
-  font-size: 3rem;
-  line-height: 4rem;
-  height: 4rem;
-  width: 4rem;
-  text-align: center;
-  vertical-align: middle;
-  padding: .25rem;
-  margin: .25rem;*/
 }
 
 div#tic-tac-toe{
