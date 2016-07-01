@@ -1,34 +1,37 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Tic Tac Toe</title>
+    <title>Tic Tac Toe!</title>
     <meta charset="utf-8">
     <link href="index.css" media="screen" rel="stylesheet" type="text/css">
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   </head>
+
   <body>
-    <div class="emoji-selector">
-      <button class="space taco">Team 🌮 ?</button> or
-      <button class="space tiger">Team 🐯 ?</button>
-    </div>
-    <div class="gameboard">   
-      <button class="space top-left">⚪️</button>  
-      <button class="space top-middle">⚪️</button>
-      <button class="space top-right">⚪️</button>
-      <hr>     
-      <button class="space center-left">⚪️</button>
-      <button class="space center-middle">⚪️</button>
-      <button class="space center-right">⚪️</button>
-      <hr>
-      <button class="space bottom-left">⚪️</button>
-      <button class="space bottom-middle">⚪️</button>
-      <button class="space bottom-right">⚪️</button>
+    <h1>Tic Tac Toe</h1>
+    <div id="tic-tac-toe">
+      <div class="row">
+        <div class="cell" data-row="0" data-column="0"></div>
+        <div class="cell" data-row="0" data-column="1"></div>
+        <div class="cell" data-row="0" data-column="2"></div>
+      </div>
+      <div class="row">
+        <div class="cell" data-row="1" data-column="0"></div>
+        <div class="cell" data-row="1" data-column="1"></div>
+        <div class="cell" data-row="1" data-column="2"></div>
+      </div>
+      <div class="row">
+        <div class="cell" data-row="2" data-column="0"></div>
+        <div class="cell" data-row="2" data-column="1"></div>
+        <div class="cell" data-row="2" data-column="2"></div>
+      </div>
     </div>
   </body>
-  <script type="text/javascript" src="tic-tac-toe.js"></script>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      new TicTacToe().initialize('#tic-tac-toe');
+      new TicTacToe().init('#tic-tac-toe');
     })
   </script>
 </html>

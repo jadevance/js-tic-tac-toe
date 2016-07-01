@@ -1,37 +1,29 @@
 html {
-  font-size: 1rem;
   font-family: arial;
+  font-size: 1rem;
 }
 
-body {
-  background-color: white;   
-}
-
-.gameboard {
-  width: 60rem;
-  margin: 5rem auto;
-  text-align: center;
-}
-
-.emoji-selector { 
-  font-size: 3rem;
-  color: #1a9ddb; ;
-}
-
-.space {
-  background-color: #1a9ddb; 
-  color: #02567D;
-  border-radius: 0.50rem;
-  border: none; 
-  cursor: pointer;
-  font-size: 3rem;
-  width: 8rem;
+div.cell {
+  border: 1px solid #1a9ddb;
+  float: left;
+  font-size: 5rem;
   height: 8rem;
-  margin: 0;
-  padding: 0;
+  line-height: 8rem;
+  text-align: center;
+  vertical-align: middle;
+  width: 8rem;
 }
 
-hr {
-  border: none; 
+div.row {
+  clear: both;
 }
+
+/*div.emoji-selector { 
+  font-size: 3rem;
+  color: #1a9ddb;
+  float: right;
+  clear: both; 
+  margin: 5rem; 
+}
+*/
 
