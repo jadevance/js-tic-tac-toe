@@ -1,7 +1,5 @@
 // To Do:
-// - Draw conditions and message 
 // - Add sounds and animations!! 
-// - Make it look how you want
 
 
 function TicTacToe() {
@@ -26,8 +24,8 @@ function TicTacToe() {
   this.init = function(selector) {
     self.container = $(selector);
     $('div.team').click(self.onTeamClick);
+    $('div.button').click(self.onNewGameClick)
     $('div.cell').click(self.onCellClick);
-    $('button').click(self.onNewGameClick)
   };
 
   this.reset = function() {
@@ -42,13 +40,6 @@ function TicTacToe() {
     self.reset()
   }
 
-  this.onCellClick = function() {
-    var _this = $(this);
-    var row = _this.data('row');
-    var column = _this.data('column');
-    self.makeMove(row, column); 
-  };
-
   this.onTeamClick = function() {
     var _this = $(this);
     if (_this.data('type') === 'taco') { 
@@ -58,15 +49,39 @@ function TicTacToe() {
     }
   }; 
 
+  this.onCellClick = function() {
+    var _this = $(this);
+    var row = _this.data('row');
+    var column = _this.data('column');
+    self.makeMove(row, column); 
+  };
+
+  this.displayBoard = function() {
+    for (var i = 0; i < self.board.length; i++) {
+      var row = self.board[i];
+      for (var j = 0; j < row.length; j++) {
+        var cell = row[j];
+        self.updateCell(i, j, cell);
+      }
+    }
+  };
+
   this.makeMove = function(row, column) {
     if (self.board[row][column] != '') {
       return;
     }
     if (self.gameOver) {
       return;
-    }
+    } 
     self.board[row][column] = self.turn;
     self.nextTurn();
+  };
+
+  this.updateCell = function(row, column, content) {
+    var selector = 'div.cell[data-row="%row%"][data-column="%column%"]';
+    selector = selector.replace('%row%', row);
+    selector = selector.replace('%column%', column);
+    self.container.find(selector).text(content);
   };
 
   this.nextTurn = function() {
@@ -74,9 +89,14 @@ function TicTacToe() {
     self.turn = self.turn === '🌮' ? '🐯' : '🌮';
 
     var winner = self.isWinner();
+    var draw = self.isDraw(); 
     if (winner != false) {
       self.gameOver = true;
       $('div.message').text('Winner: Team ' + winner)
+    }
+    console.log(draw)
+    if (draw === true && winner != true) {
+      $('div.message').text("It's a draw!")
     }
   };
 
@@ -92,6 +112,19 @@ function TicTacToe() {
     }
     return false;
   };
+
+  this.isDraw = function() {
+    for (var i = 0; i < self.board.length; i++) {
+      var row = self.board[i];
+      for (var j = 0; j < row.length; j++) {
+        var boardCell = row[j];
+        if (boardCell === '') {
+          return false; 
+        }
+      }
+    }
+    return true
+  }
 
   this.checkWinCondition = function(symbol, winCondition) {
     for (var i = 0; i < self.board.length; i++) {
@@ -109,22 +142,5 @@ function TicTacToe() {
       }
     }
     return true;
-  };
-
-  this.displayBoard = function() {
-    for (var i = 0; i < self.board.length; i++) {
-      var row = self.board[i];
-      for (var j = 0; j < row.length; j++) {
-        var cell = row[j];
-        self.updateCell(i, j, cell);
-      }
-    }
-  };
-
-  this.updateCell = function(row, column, content) {
-    var selector = 'div.cell[data-row="%row%"][data-column="%column%"]';
-    selector = selector.replace('%row%', row);
-    selector = selector.replace('%column%', column);
-    self.container.find(selector).text(content);
   };
 };
