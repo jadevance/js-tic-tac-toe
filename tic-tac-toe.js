@@ -1,8 +1,6 @@
-// To Do:
-// - Add sounds and animations!! 
-
-
 function TicTacToe() {
+  // cheap trick to grab instance of TicTacToe 
+  // and keep it straight when inside functions
   var self = this;
 
   this.container = null;
@@ -37,7 +35,7 @@ function TicTacToe() {
 
   this.onNewGameClick = function() {
     self.reset()
-  }
+  }; 
 
   this.onTeamClick = function() {
     var _this = $(this);
@@ -63,17 +61,17 @@ function TicTacToe() {
       for (var j = 0; j < row.length; j++) {
         var cell = row[j];
         self.updateCell(i, j, cell);
-      }
-    }
+      }; 
+    }; 
   };
 
   this.makeMove = function(row, column) {
     if (self.board[row][column] != '') {
       return;
-    }
+    }; 
     if (self.gameOver) {
       return;
-    } 
+    }; 
     self.board[row][column] = self.turn;
     self.nextTurn();
   };
@@ -94,11 +92,10 @@ function TicTacToe() {
     if (winner != false) {
       self.gameOver = true;
       $('div.message').text('Winner: Team ' + winner)
-    }
-    console.log(draw)
+    }; 
     if (draw === true && winner != true) {
       $('div.message').text("It's a draw!")
-    }
+    }; 
   };
 
   this.isWinner = function() {
@@ -106,11 +103,11 @@ function TicTacToe() {
       var winCondition = self.winConditions[i];
       if (self.checkWinCondition('🌮', winCondition)) {
         return '🌮';
-      }
+      }; 
       if (self.checkWinCondition('🐯', winCondition)) {
         return '🐯';
-      }
-    }
+      }; 
+    }; 
     return false;
   };
 
@@ -121,11 +118,11 @@ function TicTacToe() {
         var boardCell = row[j];
         if (boardCell === '') {
           return false; 
-        }
-      }
-    }
-    return true
-  }
+        }; 
+      }; 
+    }; 
+    return true; 
+  }; 
 
   this.checkWinCondition = function(symbol, winCondition) {
     for (var i = 0; i < self.board.length; i++) {
@@ -139,9 +136,9 @@ function TicTacToe() {
         // the symbol this can't be a winner.
         if (winConditionCell == 1 && boardCell != symbol) {
           return false;
-        }
-      }
-    }
+        }; 
+      }; 
+    }; 
     return true;
   };
 };

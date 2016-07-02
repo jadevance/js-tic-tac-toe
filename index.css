@@ -1,21 +1,21 @@
 html {
-  font-family: 'El Messiri', sans-serif;
-  font-size: 1rem;
-  color: white;
-  background-image: url('./rainbows.jpg');
   background-attachment: fixed;
+  background-image: url('./rainbows.jpg');
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  color: white;
+  font-family: 'El Messiri', sans-serif;
+  font-size: 1rem;
   margin: 3rem;
 }
 
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -27,22 +27,19 @@ div.message {
 }
 div#tic-tac-toe{
   display: block;
-  /*margin: auto;*/
   width: 40%;
   z-index: -1;
-  margin-top: 10rem;
-
 }
 
 div.button {
-  width: 12rem;
-  height: 6rem;
   border-radius: .50rem;
   border: .15rem solid white;
+  font-size: 2rem;
+  height: 6rem;
   line-height: 6rem;
   text-align: center;
   vertical-align: middle;
-  font-size: 2rem;
+  width: 12rem;
 }
 
 div.cell:hover, div.team:hover, div.button:hover {
@@ -60,10 +57,10 @@ div.cell, div.team {
   font-size: 4.5rem;
   height: 6rem;
   line-height: 7rem;
+  margin: .25rem;
   text-align: center;
   vertical-align: middle;
   width: 6rem;
-  margin: .25rem;
 }
 
 div.row {
