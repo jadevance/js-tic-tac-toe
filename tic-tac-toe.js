@@ -25,7 +25,6 @@ function TicTacToe() {
     self.container = $(selector);
     $('div.team').click(self.onTeamClick);
     $('div.button').click(self.onNewGameClick)
-    $('div.cell').click(self.onCellClick);
   };
 
   this.reset = function() {
@@ -44,8 +43,10 @@ function TicTacToe() {
     var _this = $(this);
     if (_this.data('type') === 'taco') { 
       self.turn = '🌮'
+      $('div.cell').click(self.onCellClick);
     } else {
       self.turn = '🐯'
+      $('div.cell').click(self.onCellClick);
     }
   }; 
 
