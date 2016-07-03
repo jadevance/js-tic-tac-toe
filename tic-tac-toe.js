@@ -6,6 +6,7 @@ function TicTacToe() {
   this.container = null;
   this.gameOver = null;
   this.turn = null;
+  this.start = false 
   this.board = [['','',''],['','',''],['','','']];
 
   this.winConditions = [
@@ -27,6 +28,7 @@ function TicTacToe() {
 
   this.reset = function() {
     self.gameOver = false;
+    self.start  = false; 
     self.board = [['','',''],['','',''],['','','']]; 
     self.container.find('div.cell').text('');
     self.turn = null; 
@@ -39,6 +41,7 @@ function TicTacToe() {
 
   this.onTeamClick = function() {
     var _this = $(this);
+    self.start = true 
     if (_this.data('type') === 'taco') { 
       self.turn = '🌮'
       $('div.cell').click(self.onCellClick);
@@ -49,10 +52,12 @@ function TicTacToe() {
   }; 
 
   this.onCellClick = function() {
-    var _this = $(this);
-    var row = _this.data('row');
-    var column = _this.data('column');
-    self.makeMove(row, column); 
+    if (self.start) {  
+      var _this = $(this);
+      var row = _this.data('row');
+      var column = _this.data('column');
+      self.makeMove(row, column); 
+    }
   };
 
   this.displayBoard = function() {
